@@ -1,0 +1,159 @@
+html {
+  --s: 175px;
+  --c1: #3284ff;
+  --c2: #4a4a4a;
+  --c3: #32ff7e;
+
+  background: repeating-conic-gradient(
+        from 30deg,
+        #0000 0 120deg,
+        var(--c3) 0 50%
+      )
+      calc(var(--s) / 2) calc(var(--s) * tan(30deg) / 2),
+    repeating-conic-gradient(
+      from 30deg,
+      var(--c1) 0 60deg,
+      var(--c2) 0 120deg,
+      var(--c3) 0 50%
+    );
+  background-size: var(--s) calc(var(--s) * tan(30deg));
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+  color: #ffff;
+  text-decoration: none;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 25px 30px;
+  background: rgba(0, 0, 0, 0.863);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+}
+
+h1 {
+  margin-bottom: 15px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+p {
+  margin-bottom: 15px;
+}
+
+.group-proposal {
+  display: flex;
+  gap: 10px;
+  width: 60%;
+  margin-bottom: 30px;
+  padding: 5px;
+  background-color: rgb(36, 36, 36);
+  border: 1px solid #978f8f;
+  border-radius: 10px;
+}
+
+.proposal {
+  display: grid;
+  place-content: center;
+  width: 33%;
+  padding: 10px 15px;
+  font-weight: 600;
+  background: black;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-generate {
+  all: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 12px 20px;
+  font-weight: 500;
+  background-color: rgb(36, 36, 36);
+  border: 1px solid #978f8f;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.input-icon-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 15px 10px 15px 20px;
+  background: transparent;
+  border: 2px solid hsl(120, 61%, 50%);
+  border-radius: 5px;
+}
+
+.result-field {
+  all: unset;
+  font-family: "Fira Code", "Courier New", Courier, monospace;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: hsl(120, 61%, 50%);
+}
+
+.copy-icon {
+  font-size: 20px;
+  color: hsl(120, 61%, 50%);
+  cursor: pointer;
+}
+
+/***** FOR MOBILE RESPONSIVE *****/
+
+@media (width <= 768px) {
+  body {
+    margin: 0 20px;
+  }
+
+  .card {
+    width: 300px;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
+
+  .group-proposal {
+    gap: 20px;
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 8px;
+  }
+
+  .proposal {
+    padding: 10px;
+  }
+
+  .btn-generate {
+    padding: 15px;
+    border-radius: 8px;
+  }
+
+  .input-icon-wrapper {
+    padding: 15px 10px 15px 8px;
+    border-radius: 8px;
+  }
+
+  .result-field {
+    font-size: 1rem;
+  }
+}
