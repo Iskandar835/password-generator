@@ -1,0 +1,189 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-clip: border-box;
+  font-family: "Segoe UI", sans-serif;
+  color: #ffff;
+  text-decoration: none;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.wrapper {
+  position: relative;
+  padding: 5px;
+  background: linear-gradient(135deg, #14ffe9, #ffeb3b, #ff00e0);
+  border-radius: 10px;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.glow {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(270deg, #14ffe9, #ffeb3b, #ff00e0, #14ffe9);
+  background-size: 600% 600%;
+  border-radius: 10px;
+  animation: gradientShift 4s ease infinite;
+}
+
+.glow.blur {
+  filter: blur(10px);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 25px 30px;
+  background: #1b1b1b;
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 15px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.explanatory-text {
+  font-size: 0.85rem;
+  margin-bottom: 25px;
+}
+
+.group-proposal {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  padding: 8px;
+  background-color: rgb(36, 36, 36);
+  border: 1px solid #978f8f;
+  border-radius: 5px;
+}
+
+.proposal {
+  display: grid;
+  place-content: center;
+  width: 33%;
+  padding: 10px 15px;
+  font-weight: 600;
+  border-radius: 5px;
+  background: rgba(102, 97, 97, 0.329);
+  cursor: pointer;
+}
+
+.proposal:hover {
+  background: black;
+}
+
+.input-icon-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding: 15px 10px 15px 20px;
+  border: 2px solid hsl(120, 61%, 50%);
+  border-radius: 5px;
+}
+
+.result-field {
+  all: unset;
+  font-family: "Fira Code", "Courier New", Courier, monospace;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: hsl(120, 61%, 50%);
+  text-align: left;
+}
+
+.copy-icon {
+  font-size: 20px;
+  color: hsl(120, 61%, 50%);
+  cursor: pointer;
+}
+
+.info-section {
+  display: flex;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.info-icon-container {
+  display: grid;
+  place-content: center;
+  aspect-ratio: 1 / 1;
+  width: 22px;
+  height: 22px;
+  font-size: 0.65rem;
+  border: 1px solid #978f8f;
+  border-radius: 50%;
+}
+
+.password-tester-link {
+  font-weight: 700;
+  color: hsl(120, 61%, 50%);
+}
+
+/***** FOR MOBILE RESPONSIVE *****/
+
+@media (width <= 768px) {
+  .card {
+    width: 280px;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
+
+  .group-proposal {
+    gap: 20px;
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 8px;
+  }
+
+  .proposal {
+    padding: 10px;
+  }
+
+  .input-icon-wrapper {
+    padding: 15px 10px 15px 8px;
+    border-radius: 8px;
+  }
+
+  .result-field {
+    font-size: 1rem;
+  }
+
+  .info-section {
+    font-size: 0.7rem;
+  }
+
+  .info-icon-container {
+    width: 18px;
+    height: 18px;
+  }
+}
