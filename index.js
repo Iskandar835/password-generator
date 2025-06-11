@@ -6,14 +6,22 @@ function getRandomCharacter(characters) {
   return characters.charAt(Math.floor(Math.random() * characters.length));
 }
 
+function getRandomUppercase(characters) {
+  return getRandomCharacter(characters).toUpperCase();
+}
+
+function getRandomDigit() {
+  return Math.floor(Math.random() * 10).toString();
+}
+
 function generateGroup(firstParam, secondParam) {
   return (
-    getRandomCharacter(firstParam) +
+    getRandomUppercase(firstParam) +
     getRandomCharacter(secondParam) +
     getRandomCharacter(firstParam) +
     getRandomCharacter(firstParam) +
     getRandomCharacter(secondParam) +
-    getRandomCharacter(firstParam)
+    getRandomDigit()
   );
 }
 
@@ -36,3 +44,6 @@ function actionClickingNumberBtn(id, groupsCount) {
 actionClickingNumberBtn("btn-one", 1);
 actionClickingNumberBtn("btn-two", 2);
 actionClickingNumberBtn("btn-three", 3);
+
+// adresse pour tester les mots de passes
+// https://nordpass.com/fr/secure-password/
