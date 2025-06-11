@@ -35,7 +35,7 @@ function generatePassword(groupsCount) {
 
 function actionClickingNumberBtn(id, groupsCount) {
   const btn = document.getElementById(id);
-  const input = document.querySelector(".result-field");
+  const input = document.getElementById("result-field");
   btn?.addEventListener("click", () => {
     input.value = generatePassword(groupsCount);
   });
@@ -45,5 +45,21 @@ actionClickingNumberBtn("btn-one", 1);
 actionClickingNumberBtn("btn-two", 2);
 actionClickingNumberBtn("btn-three", 3);
 
-// adresse pour tester les mots de passes
-// https://nordpass.com/fr/secure-password/
+function copyPassword() {
+  const input = document.getElementById("result-field");
+  const copyBtn = document.querySelector(".copy-icon");
+
+  copyBtn.addEventListener("click", () => {
+    if (input.value !== "") {
+      navigator.clipboard.writeText(input.value);
+      navigator.vibrate([10, 20, 10]);
+      confetti({
+        particleCount: 200,
+        spread: 90,
+        origin: { y: 0.32 },
+      });
+    }
+  });
+}
+
+copyPassword();
