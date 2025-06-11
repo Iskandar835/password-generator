@@ -16,20 +16,37 @@
   </head>
   <body>
     <main>
-      <section class="card">
-        <h1>Password Generator</h1>
-        <p>Number of Password groups</p>
-        <div class="group-proposal">
-          <span class="proposal" id="btn-one">1</span>
-          <span class="proposal" id="btn-two">2</span
-          ><span class="proposal" id="btn-three">3</span>
-        </div>
-        <button class="btn-generate">Generate</button>
-        <div class="input-icon-wrapper">
-          <input class="result-field" type="text" readonly />
-          <i class="fa-solid fa-clone copy-icon"></i>
-        </div>
-      </section>
+      <div class="wrapper">
+        <div class="glow blur"></div>
+        <section class="card">
+          <h1>Password Generator</h1>
+          <p>Number of Password groups</p>
+          <p class="explanatory-text">Click many time, it's unlimited !</p>
+          <div class="group-proposal">
+            <span class="proposal" id="btn-one">1</span>
+            <span class="proposal" id="btn-two">2</span
+            ><span class="proposal" id="btn-three">3</span>
+          </div>
+          <div class="input-icon-wrapper">
+            <input class="result-field" type="text" readonly />
+            <i class="fa-solid fa-clone copy-icon"></i>
+          </div>
+          <div class="info-section">
+            <span class="info-icon-container"
+              ><i class="fa-solid fa-info"></i
+            ></span>
+            <p>
+              You want to test you password ? Copy that and
+              <a
+                class="password-tester-link"
+                href="https://nordpass.com/fr/secure-password/"
+                target="_blank"
+                >click here</a
+              >
+            </p>
+          </div>
+        </section>
+      </div>
     </main>
   </body>
   <script src="./index.js"></script>
