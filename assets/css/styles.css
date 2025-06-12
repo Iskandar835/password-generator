@@ -17,6 +17,7 @@ main {
 
 .wrapper {
   position: relative;
+  z-index: 2;
   padding: 5px;
   background: linear-gradient(135deg, #00f0ff, #4b6aff, #1acfff);
   border-radius: 10px;
@@ -36,7 +37,7 @@ main {
 
 .glow {
   position: absolute;
-  z-index: 0;
+  z-index: 1;
   top: 0;
   left: 0;
   width: 100%;
@@ -52,6 +53,8 @@ main {
 }
 
 .card {
+  position: relative;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   padding: 25px 30px;
