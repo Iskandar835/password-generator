@@ -50,28 +50,26 @@ function copyPassword() {
   const copyBtn = document.querySelector(".copy-icon");
   const audio = new Audio("./assets/audio/3.mp3");
 
-  async function handleCopy() {
-    if (input.value === "") return;
+  copyBtn.addEventListener("click", async () => {
+    if (!input.value) return;
 
     try {
       await navigator.clipboard.writeText(input.value);
-      navigator.vibrate([10, 20, 10]);
-
-      audio.currentTime = 0;
-      audio.play();
-
-      confetti({
-        particleCount: 200,
-        spread: 90,
-        origin: { y: 0.32 },
-      });
     } catch (err) {
-      alert("Error copying to clipboard, please try later.");
-      console.error("Copy failed :", err);
+      input.select();
+      input.setSelectionRange(0, 99999);
+      document.execCommand("copy");
     }
-  }
 
-  copyBtn.addEventListener("click", handleCopy);
+    navigator.vibrate([10, 20, 10]);
+    audio.currentTime = 0;
+    audio.play();
+    confetti({
+      particleCount: 200,
+      spread: 90,
+      origin: { y: 0.32 },
+    });
+  });
 }
 
 copyPassword();
