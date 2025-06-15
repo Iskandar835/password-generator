@@ -1,4 +1,10 @@
-html,
+html {
+  height: 100%;
+  padding-top: env(safe-area-inset-top);
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  overflow: hidden;
+}
+
 body {
   height: 100dvh;
   background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
