@@ -45,35 +45,6 @@ actionClickingNumberBtn("btn-one", 1);
 actionClickingNumberBtn("btn-two", 2);
 actionClickingNumberBtn("btn-three", 3);
 
-// function copyPassword() {
-//   const input = document.getElementById("result-field");
-//   const copyBtn = document.querySelector(".copy-icon");
-//   const audio = new Audio("./assets/audio/3.mp3");
-
-//   copyBtn.addEventListener("click", async () => {
-//     if (!input.value) return;
-
-//     try {
-//       await navigator.clipboard.writeText(input.value);
-//     } catch (err) {
-//       input.select();
-//       input.setSelectionRange(0, 99999);
-//       document.execCommand("copy");
-//     }
-
-//     navigator.vibrate([10, 20, 10]);
-//     audio.currentTime = 0;
-//     audio.play();
-//     confetti({
-//       particleCount: 200,
-//       spread: 90,
-//       origin: { y: 0.32 },
-//     });
-//   });
-// }
-
-// copyPassword();
-
 function copyPassword() {
   const input = document.getElementById("result-field");
   const copyBtn = document.querySelector(".copy-icon");
@@ -91,22 +62,20 @@ function copyPassword() {
       input.select();
       input.setSelectionRange(0, 99999);
       copied = document.execCommand("copy");
+
+      alert("An error has occurred, please try again later.");
+      console.error("The password could not be copied : " + err);
     }
 
     if (copied) {
       audio.currentTime = 0;
-      audio.play().catch(() => {
-        console.warn("Audio bloqué par le navigateur.");
-      });
-
-      if (typeof confetti === "function") {
-        confetti({
-          particleCount: 200,
-          spread: 90,
-          origin: { y: 0.32 },
-        });
-      }
+      audio.play();
       navigator.vibrate?.([10, 20, 10]);
+      confetti({
+        particleCount: 200,
+        spread: 90,
+        origin: { y: 0.32 },
+      });
     }
   });
 }
