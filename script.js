@@ -45,20 +45,34 @@ actionClickingNumberBtn("btn-one", 1);
 actionClickingNumberBtn("btn-two", 2);
 actionClickingNumberBtn("btn-three", 3);
 
+const audio = new Audio("./assets/audio/3.mp3");
+let isAudioReady = false;
+
+function prepareAudio() {
+  if (!isAudioReady) {
+    audio.play().then(() => {
+      audio.pause();
+      audio.currentTime = 0;
+      isAudioReady = true;
+    });
+  }
+}
+
 function copyPassword() {
   const input = document.getElementById("result-field");
   const copyBtn = document.querySelector(".copy-icon");
-  const audio = new Audio("./assets/audio/3.mp3");
 
   copyBtn.addEventListener("click", async () => {
     if (!input.value) return;
 
+    prepareAudio();
     let copied = false;
 
     try {
       await navigator.clipboard.writeText(input.value);
       copied = true;
     } catch (err) {
+      // fallback for IOS
       input.select();
       input.setSelectionRange(0, 99999);
       copied = document.execCommand("copy");
