@@ -48,11 +48,6 @@ main {
   animation: gradientShift 4s ease infinite;
 }
 
-.glow.blur {
-  filter: blur(10px);
-  border-radius: 10px;
-}
-
 .card {
   position: relative;
   z-index: 3;
@@ -152,6 +147,10 @@ h1 {
 /***** FOR MOBILE RESPONSIVE *****/
 
 @media (width <= 768px) {
+  main {
+    height: 110dvh;
+  }
+
   .card {
     width: 280px;
     padding: 20px;
