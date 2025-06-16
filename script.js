@@ -45,27 +45,14 @@ actionClickingNumberBtn("btn-one", 1);
 actionClickingNumberBtn("btn-two", 2);
 actionClickingNumberBtn("btn-three", 3);
 
-const audio = new Audio("./assets/audio/3.mp3");
-let isAudioReady = false;
-
-function prepareAudio() {
-  if (!isAudioReady) {
-    audio.play().then(() => {
-      audio.pause();
-      audio.currentTime = 0;
-      isAudioReady = true;
-    });
-  }
-}
-
 function copyPassword() {
   const input = document.getElementById("result-field");
   const copyBtn = document.querySelector(".copy-icon");
+  const audio = new Audio("./assets/audio/3.mp3");
 
   copyBtn.addEventListener("click", async () => {
     if (!input.value) return;
 
-    prepareAudio();
     let copied = false;
 
     try {
@@ -85,11 +72,13 @@ function copyPassword() {
       audio.currentTime = 0;
       audio.play();
       navigator.vibrate?.([10, 20, 10]);
-      confetti({
-        particleCount: 200,
-        spread: 90,
-        origin: { y: 0.32 },
-      });
+      setTimeout(() => {
+        confetti({
+          particleCount: 200,
+          spread: 90,
+          origin: { y: 0.32 },
+        });
+      }, "200");
     }
   });
 }
