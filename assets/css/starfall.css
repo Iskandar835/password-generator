@@ -21,6 +21,7 @@ body {
 .stars {
   width: 1px;
   height: 1px;
+  border-radius: 50%;
   box-shadow: 805px 91px #fff, 1228px 758px #fff, 1873px 689px #fff,
     1px 1970px #fff, 1272px 358px #fff, 1372px 1014px #fff, 993px 1057px #fff,
     1621px 779px #fff, 1505px 252px #fff, 1346px 190px #fff, 1036px 359px #fff,
