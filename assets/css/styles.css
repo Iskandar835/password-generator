@@ -220,7 +220,7 @@ h1 {
   .links-and-card {
     display: flex;
     flex-direction: column-reverse;
-    gap: 100px;
+    gap: 60px;
   }
 
   .social-links {
